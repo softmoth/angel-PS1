@@ -35,7 +35,7 @@ sub MarginRight ($;$)
     if (!ref($code)) {
         return defined($code) && length($code) ? "$code " : ();
     }
-    die 'MarginLeft: not a CODEREF' unless ref($code) eq 'CODE';
+    die 'MarginRight not a CODEREF' unless ref($code) eq 'CODE';
     my @margin = @_;
     @margin = (' ') unless @margin;
     sub {
