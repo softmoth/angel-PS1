@@ -15,8 +15,8 @@ use AngelPS1::Shell;
 # This requires the 'allow-rename' option to be enabled
 sub TmuxWindow
 {
-    return if !exists $ENV{'TMUX'}
-        || $ENV{'TERM'} ne 'screen';
+    return unless exists $ENV{'TMUX'}
+        && $ENV{'TERM'} =~ /^(tmux|screen)/;
 
     AngelPS1::Shell->ps1_invisible(
 	"\ek",
@@ -27,8 +27,8 @@ sub TmuxWindow
 
 sub TmuxTitle
 {
-    return if !exists $ENV{'TMUX'}
-        || $ENV{'TERM'} ne 'screen';
+    return unless exists $ENV{'TMUX'}
+        && $ENV{'TERM'} =~ /^(tmux|screen)/;
 
     AngelPS1::Shell->ps1_invisible(
 	"\e]2;",
